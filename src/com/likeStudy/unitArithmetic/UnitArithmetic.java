@@ -26,7 +26,7 @@ public class UnitArithmetic {
 	 * 	将转换好的String返回
 	 */
 	public String arithmetic(String line, float unit) {
-		if(pattern == null || pattern.equals("") || toUnit == null || toUnit.equals("")) {
+		if(pattern == null || "".equals(pattern) || toUnit == null || "".equals(toUnit)) {
 			System.out.println("属性异常");
 			return null;
 		}
