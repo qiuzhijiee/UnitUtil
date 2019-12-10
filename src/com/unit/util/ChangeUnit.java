@@ -1,4 +1,4 @@
-package com.likeStudy.unitUtil;
+package com.unit.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 
 import org.junit.Test;
 
-import com.likeStudy.unitArithmetic.UnitArithmetic;
-import com.likeStudy.util.FileUtil;
+import com.unit.arithmetic.UnitArithmetic;
+import com.unit.tool.FileUtil;
 
 public class ChangeUnit {
 	/**
