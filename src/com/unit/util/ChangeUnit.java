@@ -13,16 +13,6 @@ import com.unit.arithmetic.UnitArithmetic;
 import com.unit.tool.FileUtil;
 
 public class ChangeUnit {
-	/**
-	 * 
-	 * @param path
-	 * 	读取文件的路径
-	 * @param bodyPx
-	 * 	基于多少px来转换为rem
-	 * 	不能为0或小于0
-	 * @throws Exception
-	 * 	io异常,抛出
-	 */
 	
 	/**
 	 * @param path
