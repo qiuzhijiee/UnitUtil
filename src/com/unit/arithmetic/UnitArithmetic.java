@@ -1,4 +1,4 @@
-package com.likeStudy.unitArithmetic;
+package com.unit.arithmetic;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
