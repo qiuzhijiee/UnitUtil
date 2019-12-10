@@ -20,8 +20,8 @@ public class UnitArithmetic {
 	 * 
 	 * @param line
 	 * 	需要转换的String
-	 * @param bodyPx
-	 * 	基于多少px来转换为rem
+	 * @param unit
+	 * 	基于多少单位来转换为新的单位
 	 * @return
 	 * 	将转换好的String返回
 	 */

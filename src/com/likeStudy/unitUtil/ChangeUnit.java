@@ -28,10 +28,10 @@ public class ChangeUnit {
 	 * @param path
 	 * 	读取文件路径(不能和newPath相同)
 	 * @param newPath
-	 * 	存储修改后数据的路径(不能喝path相同)
+	 * 	存储修改后数据的路径(不能和path相同)
 	 * @param unit
 	 *  根据多少来进行修改(不能小于等于0)
-	 * @param uh
+	 * @param ua
 	 *  转换的方法(什么转什么)
 	 * */
 	public void readFile(String path,String newPath, float unit, UnitArithmetic ua) {
