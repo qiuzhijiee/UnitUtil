@@ -7,12 +7,12 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-import org.junit.Test;
-
-import com.qiuzhijiee.unit.Unit;
-import com.qiuzhijiee.unit.UnitArithmetic;
+import com.qiuzhijiee.unit.BaseUnitArithmetic;
 import com.qiuzhijiee.util.FileUtil;
 
+/**
+ * @author qiuzhijie
+ * */
 public class ChangeUnit {
 
 	/**
@@ -25,8 +25,8 @@ public class ChangeUnit {
 	 * @param ua
 	 *	字符串单位转换类
 	 * */
-	public boolean readFile(String path,String newPath, float unit, UnitArithmetic ua) {
-		if(path.equals(newPath) || unit <= 0) {
+	public boolean readFile(String path,String newPath, float unit, BaseUnitArithmetic ua) {
+		if (path.equals(newPath) || unit <= 0) {
 			System.out.println("数据错误");
 			return false;
 		}
@@ -51,12 +51,5 @@ public class ChangeUnit {
 			return false;
 		}
 		return true;
-	}
-	
-	
-	@Test
-	public void test() {
-		UnitArithmetic ua = new Unit("px","rem");
-		readFile("D:/myProject/TestFIle/demo.css","D:/myProject/TestFIle/demo2.css",20, ua);
 	}
 }
