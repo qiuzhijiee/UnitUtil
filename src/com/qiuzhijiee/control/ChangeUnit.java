@@ -1,4 +1,4 @@
-package com.unit.util;
+package com.qiuzhijiee.control;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,70 +9,54 @@ import java.io.PrintWriter;
 
 import org.junit.Test;
 
-import com.unit.arithmetic.UnitArithmetic;
-import com.unit.tool.FileUtil;
+import com.qiuzhijiee.unit.Unit;
+import com.qiuzhijiee.unit.UnitArithmetic;
+import com.qiuzhijiee.util.FileUtil;
 
 public class ChangeUnit {
-	/**
-	 * 
-	 * @param path
-	 * 	¶ÁÈ¡ÎÄ¼şµÄÂ·¾¶
-	 * @param bodyPx
-	 * 	»ùÓÚ¶àÉÙpxÀ´×ª»»Îªrem
-	 * 	²»ÄÜÎª0»òĞ¡ÓÚ0
-	 * @throws Exception
-	 * 	ioÒì³£,Å×³ö
-	 */
-	
+
 	/**
 	 * @param path
-	 * 	¶ÁÈ¡ÎÄ¼şÂ·¾¶(²»ÄÜºÍnewPathÏàÍ¬)
+	 * 	è¯»å–æ–‡ä»¶è·¯å¾„(ä¸èƒ½å’ŒnewPathç›¸åŒ)
 	 * @param newPath
-	 * 	´æ´¢ĞŞ¸ÄºóÊı¾İµÄÂ·¾¶(²»ÄÜºÍpathÏàÍ¬)
+	 * 	å­˜å‚¨ä¿®æ”¹åæ•°æ®çš„è·¯å¾„(ä¸èƒ½å’Œpathç›¸åŒ)
 	 * @param unit
-	 *  ¸ù¾İ¶àÉÙÀ´½øĞĞĞŞ¸Ä(²»ÄÜĞ¡ÓÚµÈÓÚ0)
+	   *     æ ¹æ®å¤šå°‘æ¥è¿›è¡Œä¿®æ”¹(ä¸èƒ½å°äºç­‰äº0)    
 	 * @param ua
-	 *  ×ª»»µÄ·½·¨(Ê²Ã´×ªÊ²Ã´)
+	 *	å­—ç¬¦ä¸²å•ä½è½¬æ¢ç±»
 	 * */
-	public void readFile(String path,String newPath, float unit, UnitArithmetic ua) {
+	public boolean readFile(String path,String newPath, float unit, UnitArithmetic ua) {
 		if(path.equals(newPath) || unit <= 0) {
-			System.out.println("Êı¾İ´íÎó");
-			return;
+			System.out.println("æ•°æ®é”™è¯¯");
+			return false;
 		}
-		//¸ù¾İÂ·¾¶»ñÈ¡¶ÁÈ¡ĞèÒªµÄ¶ÔÏó
-		//´´½¨´òÓ¡µ½ĞÂÎÄ¼şĞèÒªµÄ¶ÔÏó
+		
 		File file = new File(path);
 		File newFile = FileUtil.createFile(newPath);
+		
 		try(FileInputStream fis = new FileInputStream(file);
 				BufferedReader br = new BufferedReader(new InputStreamReader(fis,"UTF-8"));
 				FileWriter fw = new FileWriter(newFile);
 				PrintWriter pw = new PrintWriter(fw);
 				){
 			
-			//¶ÁÈ¡ÎÄ¼şÒ»ĞĞµÄÄÚÈİ,²¢ÅĞ¶ÏÆä²»Îªnull,È»ºó½øĞĞĞŞ¸Ä
 			String line;
 			while((line = br.readLine()) != null) {
+				String changeStr = ua.modifyUnit(line,unit);
 				
-				//½«¶ÁÈ¡µ½µÄStrÖĞ px ×ª»»³É rem
-				String changeStr = ua.arithmetic(line,unit);
-				//System.out.println(changeStr);
-				
-				//½«strĞ´ÈëÎÄ¼ş
 				pw.println(changeStr);
-				
-				//Ç¿ÖÆ½«»º´æĞ´ÈëÓ²ÅÌ
-				//pw.flush();
 			}
-			System.out.println("Íê³É");
 		}catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	
 	@Test
 	public void test() {
-		UnitArithmetic ua = new UnitArithmetic("px","rem");
+		UnitArithmetic ua = new Unit("px","rem");
 		readFile("D:/myProject/TestFIle/demo.css","D:/myProject/TestFIle/demo2.css",20, ua);
 	}
 }
