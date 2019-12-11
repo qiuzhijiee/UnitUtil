@@ -1,13 +1,15 @@
 package com.qiuzhijiee.unit;
 
 
-public abstract class UnitArithmetic {
-
-	//正则表达式
+/**
+ * @author qiuzhijie
+ * */
+public abstract class BaseUnitArithmetic {
+	
 	protected String pattern;
 	protected String toUnit;
 	
-	public UnitArithmetic(String originUnit, String toUnit) {
+	public BaseUnitArithmetic(String originUnit, String toUnit) {
 		pattern = "([0-9.]*+"+originUnit+")";
 		this.toUnit = toUnit.trim();
 	}
@@ -15,6 +17,7 @@ public abstract class UnitArithmetic {
 	
 	
 	/**
+	 * 用来根据unit修改字符串的单位  例：padding: 16px; ->  padding: 1rem;
 	 * 
 	 * @param line
 	 * 	需要转换的String

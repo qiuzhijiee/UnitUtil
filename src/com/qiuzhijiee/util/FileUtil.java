@@ -3,8 +3,10 @@ package com.qiuzhijiee.util;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.Test;
 
+/**
+ * @author qiuzhijie
+ * */
 public class FileUtil {
 	public static File checkFile(String path) {
 		File file = new File(path);
@@ -31,16 +33,5 @@ public class FileUtil {
 			}
 		}
 		return file;
-	}
-	
-	
-	@Test
-	public void test1() throws Exception {
-		try {
-		File file = createFile("D:\\myProject\\TestFIle\\demo");
-		System.out.println(file.getName());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
 	}
 }
